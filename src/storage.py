@@ -12,8 +12,8 @@ from src.plotting import plotCumulativeReward
 
 def writeCurvesCsv(results, config, outputPath):
     """
-    i write the mean and standard deviation of the cumulative reward at every time
-    step for both agents. this is the data behind the main plot, so i can redraw it
+    write the mean and standard deviation of the cumulative reward at every time
+    step for both agents. this is the data behind the main plot, so can redraw it
     or quote exact values later without rerunning anything.
     """
     columns = {}
@@ -30,7 +30,7 @@ def writeCurvesCsv(results, config, outputPath):
 
 def writePerRunCsv(results, config, outputPath):
     """
-    i write one row per agent per run with that run's key numbers, using the rows
+    write one row per agent per run with that run's key numbers, using the rows
     built in metrics.py.
     """
     rows = perRunRows(results, config)
@@ -42,8 +42,8 @@ def writePerRunCsv(results, config, outputPath):
 
 def writeRawArrays(results, outputPath):
     """
-    i save the full cumulative reward curve of every run as a compressed numpy file,
-    along with the seeds, in case i want to make other plots later.
+    save the full cumulative reward curve of every run as a compressed numpy file,
+    along with the seeds, in case want to make other plots later.
     """
     arrays = {agentName: np.array([trial["cumulativeReward"] for trial in results[agentName]]) for agentName in agentNames}
     arrays["seeds"] = np.array([trial["seed"] for trial in results[agentNames[0]]])
@@ -52,7 +52,7 @@ def writeRawArrays(results, outputPath):
 
 def writeEpisodesCsv(results, outputPath):
     """
-    i write every completed episode of every run as one row: when it ended, how long
+    write every completed episode of every run as one row: when it ended, how long
     it took and whether it went through the shortcut. the route usage figure is built
     from this file.
     """
@@ -69,8 +69,8 @@ def writeEpisodesCsv(results, outputPath):
 
 def writeFinalQValues(results, outputPath):
     """
-    i save the q-table each agent ended every run with, shaped (runs, rows, cols,
-    actions), so i can draw the learned policies without rerunning the experiment.
+    save the q-table each agent ended every run with, shaped (runs, rows, cols,
+    actions), so can draw the learned policies without rerunning the experiment.
     """
     arrays = {agentName: np.array([trial["finalQValues"] for trial in results[agentName]]) for agentName in agentNames}
     np.savez_compressed(outputPath, **arrays)
@@ -78,7 +78,7 @@ def writeFinalQValues(results, outputPath):
 
 def writeMazeLayouts(maze, outputPath):
     """
-    i save text drawings of the maze before and after the change, together with the
+    save text drawings of the maze before and after the change, together with the
     shortest path length in each layout, so the setup is documented with the results.
     """
     sections = [
@@ -94,7 +94,7 @@ def writeMazeLayouts(maze, outputPath):
 
 def loadSavedResults(resultsDir):
     """
-    i read back everything the figures need from a results folder: the config and
+    read back everything the figures need from a results folder: the config and
     summary, the raw reward curves, the per-run and episode tables and the final
     q-tables. this lets me make the report figures without rerunning the experiment.
     """
@@ -122,10 +122,10 @@ def loadSavedResults(resultsDir):
 
 def saveResults(results, summary, config, maze):
     """
-    i create the results folder if it does not exist and write everything into it:
+    create the results folder if it does not exist and write everything into it:
     the json summary, the curve, per-run and episode tables, the raw reward curves,
     the final q-tables, the maze layouts and the cumulative reward plot the assignment
-    asks for. i return the list of files so main can print where everything went.
+    asks for. return the list of files so main can print where everything went.
     """
     resultsDir = Path(config.resultsDir)
     resultsDir.mkdir(parents=True, exist_ok=True)

@@ -4,7 +4,7 @@ from collections import deque
 
 class ShortcutMaze:
     """
-    i represent the 6x9 maze as a grid of (row, col) cells with row 0 at the top.
+    represent the 6x9 maze as a grid of (row, col) cells with row 0 at the top.
     the maze starts with a wall across row 3 that only leaves column 0 open, and i
     switch to a shorter wall when the shortcut opens. the only thing that changes
     from step to step is where the agent is.
@@ -15,9 +15,9 @@ class ShortcutMaze:
 
     def __init__(self, numRows, numCols, startState, goalState, wallsBefore, wallsAfter):
         """
-        i store the grid size, the start and goal cells and both wall layouts. the
+        store the grid size, the start and goal cells and both wall layouts. the
         shortcut cells are whatever is a wall before the change but not after it,
-        which for this assignment is just (3, 8). i begin with the original layout
+        which for this assignment is just (3, 8). begin with the original layout
         and the agent on the start cell.
         """
         self.numRows = numRows
@@ -34,7 +34,7 @@ class ShortcutMaze:
 
     def reset(self):
         """
-        i put the agent back on the start cell and return it. i deliberately leave the
+        put the agent back on the start cell and return it. deliberately leave the
         walls alone here, so going back to the start after reaching the goal keeps
         whatever layout the maze currently has.
         """
@@ -43,7 +43,7 @@ class ShortcutMaze:
 
     def openShortcut(self):
         """
-        i switch to the second wall layout, which removes the wall at (3, 8). the agent
+        switch to the second wall layout, which removes the wall at (3, 8). the agent
         is never told about this, so the only way it can learn about the shortcut is by
         actually moving into that cell.
         """
@@ -52,8 +52,8 @@ class ShortcutMaze:
 
     def nextCell(self, cell, action, walls=None):
         """
-        i work out where an action leads from a cell under a given wall layout. if the
-        target cell is off the grid or is a wall, i return the same cell, so bumping
+        work out where an action leads from a cell under a given wall layout. if the
+        target cell is off the grid or is a wall, return the same cell, so bumping
         into something just wastes the time step.
         """
         if walls is None:
@@ -68,7 +68,7 @@ class ShortcutMaze:
 
     def isShortcutCrossing(self, state, nextState):
         """
-        i count a move as using the shortcut only when the agent steps into a shortcut
+        count a move as using the shortcut only when the agent steps into a shortcut
         cell from the start's side of the wall. this way an agent near the goal that
         randomly steps down into (3, 8) from above is not counted as having found the
         shortcut, because it has not actually used it as a route from the start.
@@ -80,8 +80,8 @@ class ShortcutMaze:
 
     def step(self, action):
         """
-        i move the agent one cell in the chosen direction, where walls and edges keep it
-        in place, and give a reward of 1 only when it lands on the goal, otherwise 0. i also return whether the goal was reached so the experiment
+        move the agent one cell in the chosen direction, where walls and edges keep it
+        in place, and give a reward of 1 only when it lands on the goal, otherwise 0. also return whether the goal was reached so the experiment
         loop knows to send the agent back to the start.
         """
         nextState = self.nextCell(self.agentState, action)
@@ -92,8 +92,8 @@ class ShortcutMaze:
 
     def shortestPathLength(self, walls=None):
         """
-        i run a breadth-first search from the start to the goal to find the length of
-        the best possible route. i use it to check that my maze is built correctly
+        run a breadth-first search from the start to the goal to find the length of
+        the best possible route. use it to check that my maze is built correctly
         (16 steps before the shortcut and 10 after) and to know the best reward rate an
         agent could reach in each phase.
         """
@@ -114,9 +114,9 @@ class ShortcutMaze:
 
     def shortestPath(self, walls=None):
         """
-        i find one shortest route from the start to the goal as a list of cells, for
-        drawing in the report. many routes have the same length, so among those i pick
-        the one with the fewest turns, which is the easiest to read on a figure. i do
+        find one shortest route from the start to the goal as a list of cells, for
+        drawing in the report. many routes have the same length, so among those pick
+        the one with the fewest turns, which is the easiest to read on a figure. do
         this with a small dijkstra search where the cost is the number of steps first
         and the number of direction changes second.
         """
@@ -151,9 +151,9 @@ class ShortcutMaze:
 
     def render(self, walls=None):
         """
-        i draw the maze as text, marking the start and goal with the same letters the
-        assignment uses, walls with # and open cells with a dot. i save this next to
-        the results so the layouts i actually used are on record.
+        draw the maze as text, marking the start and goal with the same letters the
+        assignment uses, walls with # and open cells with a dot. save this next to
+        the results so the layouts actually used are on record.
         """
         if walls is None:
             walls = self.walls
