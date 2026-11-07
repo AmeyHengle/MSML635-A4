@@ -1,0 +1,17 @@
+before the shortcut opens (shortest path: 16 steps)
+   0 1 2 3 4 5 6 7 8
+0  . . . . . . . . G
+1  . . . . . . . . .
+2  . . . . . . . . .
+3  . # # # # # # # #
+4  . . . . . . . . .
+5  . . . S . . . . .
+
+after the shortcut opens (shortest path: 10 steps)
+   0 1 2 3 4 5 6 7 8
+0  . . . . . . . . G
+1  . . . . . . . . .
+2  . . . . . . . . .
+3  . # # # # # # # .
+4  . . . . . . . . .
+5  . . . S . . . . .

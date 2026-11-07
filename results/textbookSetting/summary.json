@@ -1,0 +1,415 @@
+{
+  "config": {
+    "numRows": 6,
+    "numCols": 9,
+    "startState": [
+      5,
+      3
+    ],
+    "goalState": [
+      0,
+      8
+    ],
+    "wallsBefore": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "wallsAfter": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "shortcutStep": 3000,
+    "totalSteps": 6000,
+    "gamma": 0.95,
+    "alpha": 1.0,
+    "epsilon": 0.1,
+    "planningSteps": 10,
+    "kappa": 0.001,
+    "numRuns": 30,
+    "baseSeed": 0,
+    "resultsDir": "results/textbookSetting"
+  },
+  "maze": {
+    "shortcutCells": [
+      [
+        3,
+        8
+      ]
+    ],
+    "shortestPathBefore": 16,
+    "shortestPathAfter": 10,
+    "bestRewardRateBefore": 0.0625,
+    "bestRewardRateAfter": 0.1
+  },
+  "agents": {
+    "dynaQ": {
+      "finalCumulativeReward": {
+        "mean": 288.5,
+        "std": 25.035641260677412,
+        "median": 294.0,
+        "min": 213.0,
+        "max": 316.0,
+        "count": 30
+      },
+      "rewardBeforeShortcut": {
+        "mean": 124.5,
+        "std": 23.359152381882353,
+        "median": 131.0,
+        "min": 58.0,
+        "max": 153.0,
+        "count": 30
+      },
+      "rewardAfterShortcut": {
+        "mean": 164.0,
+        "std": 4.553387017741116,
+        "median": 165.0,
+        "min": 147.0,
+        "max": 171.0,
+        "count": 30
+      },
+      "learningBeforeShortcut": {
+        "firstEpisodeLength": {
+          "mean": 574.0,
+          "std": 406.079630942832,
+          "median": 508.5,
+          "min": 112.0,
+          "max": 1793.0,
+          "count": 30
+        },
+        "episodesFinishedBeforeShortcut": {
+          "mean": 124.5,
+          "std": 23.359152381882353,
+          "median": 131.0,
+          "min": 58.0,
+          "max": 153.0,
+          "count": 30
+        },
+        "runsWithNoEpisodeFinishedBeforeShortcut": 0
+      },
+      "rewardRateByWindow": [
+        {
+          "startStep": 0,
+          "endStep": 500,
+          "meanRate": 0.006066666666666666,
+          "stdRate": 0.009316413234477931
+        },
+        {
+          "startStep": 500,
+          "endStep": 1000,
+          "meanRate": 0.03373333333333333,
+          "stdRate": 0.02032885196518048
+        },
+        {
+          "startStep": 1000,
+          "endStep": 1500,
+          "meanRate": 0.04786666666666668,
+          "stdRate": 0.015499964157664652
+        },
+        {
+          "startStep": 1500,
+          "endStep": 2000,
+          "meanRate": 0.051866666666666686,
+          "stdRate": 0.0109536396792218
+        },
+        {
+          "startStep": 2000,
+          "endStep": 2500,
+          "meanRate": 0.05453333333333334,
+          "stdRate": 0.0023055488621054106
+        },
+        {
+          "startStep": 2500,
+          "endStep": 3000,
+          "meanRate": 0.05493333333333335,
+          "stdRate": 0.002462158041682586
+        },
+        {
+          "startStep": 3000,
+          "endStep": 3500,
+          "meanRate": 0.05420000000000001,
+          "stdRate": 0.0026000000000000007
+        },
+        {
+          "startStep": 3500,
+          "endStep": 4000,
+          "meanRate": 0.05460000000000001,
+          "stdRate": 0.001942506971244463
+        },
+        {
+          "startStep": 4000,
+          "endStep": 4500,
+          "meanRate": 0.054666666666666676,
+          "stdRate": 0.002149935399546281
+        },
+        {
+          "startStep": 4500,
+          "endStep": 5000,
+          "meanRate": 0.05506666666666668,
+          "stdRate": 0.001611072796479277
+        },
+        {
+          "startStep": 5000,
+          "endStep": 5500,
+          "meanRate": 0.05493333333333335,
+          "stdRate": 0.002174600857373346
+        },
+        {
+          "startStep": 5500,
+          "endStep": 6000,
+          "meanRate": 0.05453333333333334,
+          "stdRate": 0.00262974438977547
+        }
+      ],
+      "shortcutDiscovery": {
+        "runsFound": 1,
+        "fractionOfRunsFound": 0.03333333333333333,
+        "stepsAfterOpening": {
+          "mean": 2953.0,
+          "std": 0.0,
+          "median": 2953.0,
+          "min": 2953.0,
+          "max": 2953.0,
+          "count": 1
+        }
+      },
+      "finalPhaseBehaviour": {
+        "fromStep": 5000,
+        "meanEpisodeLength": {
+          "mean": 18.280586202094014,
+          "std": 0.6259196728133041,
+          "median": 18.181818181818183,
+          "min": 17.379310344827587,
+          "max": 20.666666666666668,
+          "count": 30
+        },
+        "shortcutEpisodeFraction": {
+          "mean": 0.0,
+          "std": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 30
+        }
+      }
+    },
+    "dynaQPlus": {
+      "finalCumulativeReward": {
+        "mean": 345.9,
+        "std": 11.332401922511101,
+        "median": 343.5,
+        "min": 325.0,
+        "max": 372.0,
+        "count": 30
+      },
+      "rewardBeforeShortcut": {
+        "mean": 121.5,
+        "std": 4.224926034855522,
+        "median": 121.0,
+        "min": 114.0,
+        "max": 135.0,
+        "count": 30
+      },
+      "rewardAfterShortcut": {
+        "mean": 224.4,
+        "std": 9.039174003561756,
+        "median": 225.0,
+        "min": 207.0,
+        "max": 241.0,
+        "count": 30
+      },
+      "learningBeforeShortcut": {
+        "firstEpisodeLength": {
+          "mean": 389.96666666666664,
+          "std": 135.7982531388219,
+          "median": 407.0,
+          "min": 57.0,
+          "max": 591.0,
+          "count": 30
+        },
+        "episodesFinishedBeforeShortcut": {
+          "mean": 121.5,
+          "std": 4.224926034855522,
+          "median": 121.0,
+          "min": 114.0,
+          "max": 135.0,
+          "count": 30
+        },
+        "runsWithNoEpisodeFinishedBeforeShortcut": 0
+      },
+      "rewardRateByWindow": [
+        {
+          "startStep": 0,
+          "endStep": 500,
+          "meanRate": 0.005066666666666667,
+          "stdRate": 0.006961481323843528
+        },
+        {
+          "startStep": 500,
+          "endStep": 1000,
+          "meanRate": 0.04600000000000001,
+          "stdRate": 0.006066300355241241
+        },
+        {
+          "startStep": 1000,
+          "endStep": 1500,
+          "meanRate": 0.04606666666666668,
+          "stdRate": 0.00439646322501268
+        },
+        {
+          "startStep": 1500,
+          "endStep": 2000,
+          "meanRate": 0.04906666666666668,
+          "stdRate": 0.0033359989341858135
+        },
+        {
+          "startStep": 2000,
+          "endStep": 2500,
+          "meanRate": 0.047000000000000014,
+          "stdRate": 0.0034928498393145962
+        },
+        {
+          "startStep": 2500,
+          "endStep": 3000,
+          "meanRate": 0.04980000000000002,
+          "stdRate": 0.0035156791662493895
+        },
+        {
+          "startStep": 3000,
+          "endStep": 3500,
+          "meanRate": 0.05613333333333334,
+          "stdRate": 0.00853124974562474
+        },
+        {
+          "startStep": 3500,
+          "endStep": 4000,
+          "meanRate": 0.07346666666666667,
+          "stdRate": 0.013032608675506561
+        },
+        {
+          "startStep": 4000,
+          "endStep": 4500,
+          "meanRate": 0.07879999999999998,
+          "stdRate": 0.0038850139424889247
+        },
+        {
+          "startStep": 4500,
+          "endStep": 5000,
+          "meanRate": 0.08006666666666666,
+          "stdRate": 0.003325991915537715
+        },
+        {
+          "startStep": 5000,
+          "endStep": 5500,
+          "meanRate": 0.07933333333333333,
+          "stdRate": 0.003025814858109394
+        },
+        {
+          "startStep": 5500,
+          "endStep": 6000,
+          "meanRate": 0.081,
+          "stdRate": 0.0038209946349085605
+        }
+      ],
+      "shortcutDiscovery": {
+        "runsFound": 30,
+        "fractionOfRunsFound": 1.0,
+        "stepsAfterOpening": {
+          "mean": 404.53333333333336,
+          "std": 293.11712486459896,
+          "median": 391.0,
+          "min": 5.0,
+          "max": 1006.0,
+          "count": 30
+        }
+      },
+      "finalPhaseBehaviour": {
+        "fromStep": 5000,
+        "meanEpisodeLength": {
+          "mean": 12.479392434000484,
+          "std": 0.3001859227742513,
+          "median": 12.47253086419753,
+          "min": 11.951807228915662,
+          "max": 13.210526315789474,
+          "count": 30
+        },
+        "shortcutEpisodeFraction": {
+          "mean": 0.9092212003137282,
+          "std": 0.011453226634646482,
+          "median": 0.9090909090909091,
+          "min": 0.8875,
+          "max": 0.9397590361445783,
+          "count": 30
+        }
+      }
+    }
+  },
+  "comparison": {
+    "finalRewardDifferenceDynaQPlusMinusDynaQ": {
+      "mean": 57.4,
+      "std": 28.897058673851216,
+      "median": 51.0,
+      "min": 16.0,
+      "max": 136.0,
+      "count": 30
+    },
+    "runsWhereDynaQPlusAhead": 30,
+    "runsTied": 0,
+    "runsWhereDynaQAhead": 0
+  }
+}
